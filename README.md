@@ -83,17 +83,24 @@ g++ -std=c++17 -Wall -Wextra -O2 -o editdistance main.cpp recursive.cpp memo.cpp
 
 El programa incluye 12 casos de prueba usando 4 cadenas:
 - `""` (cadena vacía)
-- `"AB"`
 - `"ABC"`
-- `"XYZ"`
+- `"HELLO"`
+- `"WORLD"`
+
+### Matriz de Distancias
+```
+         ""  "ABC"  "HELLO"  "WORLD"
+    ""    0    3      5       5
+  "ABC"   3    0      8       8  
+"HELLO"   5    8      0       9
+"WORLD"   5    8      9       0
+```
 
 ### Casos Específicos Verificados
-- `d("", "AB") = 2` (2 inserts)
-- `d("AB", "") = 2` (2 deletes)
-- `d("AB", "ABC") = 1` (1 insert)
-- `d("ABC", "AB") = 1` (1 delete)
-- `d("AB", "XYZ") = 5` (2 deletes + 3 inserts)
-- `d("ABC", "XYZ") = 6` (3 deletes + 3 inserts)
+- `d("", "ABC") = 3` (3 inserts: A, B, C)
+- `d("ABC", "") = 3` (3 deletes: A, B, C)
+- `d("ABC", "HELLO") = 8` (3 deletes + 5 inserts)
+- `d("HELLO", "WORLD") = 9` (transformación compleja con 'L' compartida)
 
 ## Salida del Programa
 

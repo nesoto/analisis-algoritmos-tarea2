@@ -38,7 +38,7 @@ int main()
          << endl;
 
     // Cadenas de prueba
-    vector<string> strings = {"", "AB", "ABC", "XYZ"};
+    vector<string> strings = {"", "ABC", "HELLO", "WORLD"};
 
     cout << "1. VERIFICACIÓN DE CASOS DE PRUEBA:" << endl;
     cout << "-----------------------------------" << endl;
@@ -61,10 +61,10 @@ int main()
 
     // Casos de prueba para comparar implementaciones
     vector<pair<string, string>> testCases = {
-        {"", "AB"},
-        {"AB", "ABC"},
-        {"ABC", "XYZ"},
-        {"AB", "XYZ"}};
+        {"", "ABC"},
+        {"ABC", "HELLO"},
+        {"HELLO", "WORLD"},
+        {"ABC", "WORLD"}};
 
     for (auto &test : testCases)
     {
@@ -94,12 +94,18 @@ int main()
     };
 
     vector<TestCase> specificTests = {
-        {"", "AB", 2, "2 inserts"},
-        {"AB", "", 2, "2 deletes"},
-        {"AB", "ABC", 1, "1 insert"},
-        {"ABC", "AB", 1, "1 delete"},
-        {"AB", "XYZ", 5, "2 deletes + 3 inserts"},
-        {"ABC", "XYZ", 6, "3 deletes + 3 inserts"}};
+        {"", "ABC", 3, "3 inserts: 'A', 'B', 'C'"},
+        {"ABC", "", 3, "3 deletes: 'A', 'B', 'C'"},
+        {"", "HELLO", 5, "5 inserts: 'H', 'E', 'L', 'L', 'O'"},
+        {"HELLO", "", 5, "5 deletes: 'H', 'E', 'L', 'L', 'O'"},
+        {"", "WORLD", 5, "5 inserts: 'W', 'O', 'R', 'L', 'D'"},
+        {"WORLD", "", 5, "5 deletes: 'W', 'O', 'R', 'L', 'D'"},
+        {"ABC", "HELLO", 8, "3 deletes + 5 inserts"},
+        {"HELLO", "ABC", 8, "5 deletes + 3 inserts"},
+        {"ABC", "WORLD", 8, "3 deletes + 5 inserts"},
+        {"WORLD", "ABC", 8, "5 deletes + 3 inserts"},
+        {"HELLO", "WORLD", 9, "delete 'H','E', keep 'L', delete 'L','O', insert 'W','O','R','D'"},
+        {"WORLD", "HELLO", 9, "delete 'W','O','R', keep 'L', delete 'D', insert 'H','E','L','O'"}};
 
     bool allCorrect = true;
     for (auto &test : specificTests)
