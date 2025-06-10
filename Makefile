@@ -6,7 +6,7 @@ CXX = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra -O2
 
 # Archivos fuente
-SOURCES = main.cpp recursive.cpp memo.cpp pdinamic.cpp dpopti.cpp
+SOURCES = main.cpp recursive.cpp memo.cpp pdinamic.cpp pdopti.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 TARGET = editdistance
 

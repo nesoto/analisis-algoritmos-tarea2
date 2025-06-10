@@ -8,6 +8,21 @@
 
 Este proyecto implementa el cálculo de distancia de edición entre dos cadenas de texto usando únicamente las operaciones **DELETE** e **INSERT** (sin REPLACE/SUBSTITUTE).
 
+## Ejecución Rápida
+
+```bash
+# 1. Compilar el programa principal
+make
+
+# 2. Ejecutar casos de prueba
+make run
+
+# 3. Para experimentos completos
+cd experimental
+python3 download_gutenberg.py    # Descargar textos
+python3 experimento_completo.py  # Ejecutar experimentos
+```
+
 ## Archivos del Proyecto
 
 ### Código Fuente

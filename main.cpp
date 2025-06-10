@@ -104,8 +104,8 @@ int main()
         {"HELLO", "ABC", 8, "5 deletes + 3 inserts"},
         {"ABC", "WORLD", 8, "3 deletes + 5 inserts"},
         {"WORLD", "ABC", 8, "5 deletes + 3 inserts"},
-        {"HELLO", "WORLD", 9, "delete 'H','E', keep 'L', delete 'L','O', insert 'W','O','R','D'"},
-        {"WORLD", "HELLO", 9, "delete 'W','O','R', keep 'L', delete 'D', insert 'H','E','L','O'"}};
+        {"HELLO", "WORLD", 8, "delete 'H','E','L','O', insert 'W','O','R','D' (optimizado)"},
+        {"WORLD", "HELLO", 8, "delete 'W','O','R','D', insert 'H','E','L','O' (optimizado)"}};
 
     bool allCorrect = true;
     for (auto &test : specificTests)
